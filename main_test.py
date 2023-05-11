@@ -17,17 +17,13 @@ def test_main_1():
     lines = captureOut.getvalue().split('\n')
     print(lines)
 
-    students = main.makeStudentDictionary()
-    main.printStudent(students)
-    scores = main.findStudent(students, '2023-0001')
+    zobj = main.main()
+    lst = list(zobj)
 
-    students.sort(key=lambda d: d['Name'])
-
-    assert len(students) == 4
-    assert students[0]['Name'] == 'Bill Watson'
-    assert students[3]['Name'] == 'Mary Smith'
-
-    assert len(scores) == 3
+    assert len(lst) == 3
+    assert lst[0] == ('Bill', 100)
+    assert lst[1] == ('John', 90)
+    assert lst[2] == ('Kurt', 90)
 
     # regex_string = r'[\w,\W]*1'
     # regex_string += r'[\w,\W]*3'
